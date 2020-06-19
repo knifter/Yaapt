@@ -17,6 +17,7 @@ Yet Again Another Terminal Plotter: Multi channel plotting terminal
  * pyqtgraph 0.10.0
  * PyQt 5.9.2
  * msgpack-python 0.6.1
+ * PySerial 3.4
  
 Or maybe this works for you if you've got (ana/mini)conda installed:
-> conda create -n yaapt python=3.6 -c conda-forge pyqtgraph msgpack-python
+> conda create -n yaapt python=3.6 -c conda-forge pyqtgraph msgpack-python pyserial

@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 pyqt5 = "*"
 pyqtgraph = "*"
-numpy = "*"
 pyserial = "*"
 
 [dev-packages]

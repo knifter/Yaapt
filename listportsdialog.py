@@ -1,18 +1,17 @@
-from pyqtgraph.Qt import QtGui, QtCore
+from PyQt6 import QtWidgets
 from serial.tools import list_ports
-
 import serial
 
-class ListPortsDialog(QtGui.QDialog):
+class ListPortsDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super(ListPortsDialog, self).__init__(parent=None)
         self.setWindowTitle('Select serial port.')
 
-        self.ports_list = QtGui.QListWidget()
-        self.open_btn = QtGui.QPushButton('Open serial port')
+        self.ports_list = QtWidgets.QListWidget()
+        self.open_btn = QtWidgets.QPushButton('Open serial port')
         self.open_btn.clicked.connect(self.on_open)
 
-        layout = QtGui.QVBoxLayout()
+        layout = QtWidgets.QVBoxLayout()
         layout.addWidget(self.ports_list)
         layout.addWidget(self.open_btn)
         self.setLayout(layout)
@@ -23,7 +22,7 @@ class ListPortsDialog(QtGui.QDialog):
     
     def run(self):
         if self.ports_list.count() == 0:
-            QtGui.QMessageBox.critical(self, 'Error', 
+            QtWidgets.QMessageBox.critical(self, 'Error',
                     f'No Serial ports available')
             # self.reject()
             return False
@@ -44,7 +43,7 @@ class ListPortsDialog(QtGui.QDialog):
                 self.portname = portname
                 self.accept()
             except serial.SerialException as e:
-                QtGui.QMessageBox.critical(self, 'Failure', 
+                QtWidgets.QMessageBox.critical(self, 'Failure',
                         f'Failed to open {cur_item.text()}: {e}')
                 self.reject()
                 

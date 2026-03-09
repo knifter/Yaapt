@@ -1,4 +1,6 @@
 
+from constants import *
+
 class YaaptChannel(object):
 	pass
 
@@ -13,7 +15,7 @@ def read_descr(buf):
     print("[DBG ] DESC: [%s]" % buf)
     if(buf[0] != YAAPT_INIT_START):
         print("1: %x" % buf[0])
-        raise ValueError("No DESC_START after YaaptStart")
+        raise ValueError("No DESC_START at start of new connection buffer.")
     buf = buf[1:]
     return
     while 1:

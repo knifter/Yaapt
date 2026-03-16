@@ -17,7 +17,7 @@ class Dock:
 class XYPlotDock(Dock):
     def __init__(self, area, name = 'XY'):
         self._hist = True
-        
+
         # X-Y Alignment Plot
         dock = pg.dockarea.Dock(name, size=(600,600))
 
@@ -29,14 +29,14 @@ class XYPlotDock(Dock):
         self._plot = pg.ScatterPlotItem(size=10,pen=pg.mkPen(None), brush=pg.mkBrush(255,0,0,255), name="Laser beam")
         self._plot.setSize(10)
         plotwidget.addItem(self._plot)
-        
+
         self._data = np.zeros(shape=(10, 2))
         area.addDock(dock) # , 'left')
-    
+
     def appendXY(self, x, y):
         x = decimal.Decimal(x)
         y = decimal.Decimal(y)
-    
+
         self._data[:-1] = self._data[1:]
         self._data[-1][0] = x
         self._data[-1][1] = y

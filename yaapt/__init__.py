@@ -1,4 +1,3 @@
 from yaapt.constants import *
-from yaapt.channels import *
-from yaapt.app import *
-from yaapt.device import *
+from yaapt.channels import make_channel
+from yaapt.device import DeviceConnection
